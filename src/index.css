@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --color-ink: #070b14;
+  --color-panel: #0e1524;
+  --color-line: #1c2638;
+  --color-mint: #2ef2a4;
+  --color-volt: #38bdf8;
+}
+
+[id] { scroll-margin-top: 5rem; }
+html { scroll-behavior: smooth; background: var(--color-ink); }
+body { background: var(--color-ink); color: #e2e8f0; font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::selection { background: #2ef2a455; color: #fff; }
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, #ffffff0a 1px, transparent 1px),
+    linear-gradient(to bottom, #ffffff0a 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 75%);
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, #2ef2a4 0%, #38bdf8 60%, #a5b4fc 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.glass {
+  background: linear-gradient(160deg, #ffffff0d, #ffffff04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid #ffffff14;
+}
+
+@keyframes ping-soft { 0% { transform: scale(1); opacity: .7 } 100% { transform: scale(2.6); opacity: 0 } }
+.ping-soft { animation: ping-soft 1.8s cubic-bezier(0,0,.2,1) infinite; }
+
+@keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+.marquee { animation: marquee 38s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ping-soft, .marquee { animation: none; }
+}
